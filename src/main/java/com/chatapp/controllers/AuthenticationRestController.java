@@ -47,8 +47,8 @@ public class AuthenticationRestController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    AnnounceUserStatus announceUserStatus;
+//    @Autowired
+//    AnnounceUserStatus announceUserStatus;
 
     @Autowired
     private UsersService usersService;
@@ -56,7 +56,7 @@ public class AuthenticationRestController {
     
     @RequestMapping("isOffline/{userName}")
     public void isOffline(@PathVariable("userName")String userName){
-        announceUserStatus.isOffline(userName);
+//        announceUserStatus.isOffline(userName);
         usersService.getOnlineUsers().remove(userName);
     }
     @RequestMapping(value = "checkUserName/{userName}")
