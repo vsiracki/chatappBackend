@@ -103,7 +103,7 @@ public class UsersService {
 //        System.out.println("user data : "+userEntity.getEmail());
         if (userEntity != null) {
             List<Friends> friendsEntities = userEntity.getFriendsList();
-            System.out.println("friends list size : "+friendsEntities.size());
+//            System.out.println("friends list size : "+friendsEntities.size());
             List<User> userEntites = new ArrayList<>();
             for (Friends friend : friendsEntities) {
                 userEntites.add(friend.getFriendId());
