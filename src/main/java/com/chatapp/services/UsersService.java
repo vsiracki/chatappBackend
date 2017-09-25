@@ -100,6 +100,7 @@ public class UsersService {
 
     public List<UserDto> getUserFriends(Long id) {
         User userEntity = userRepository.findOne(id);
+        System.out.println("user data : "+userEntity.getEmail());
         if (userEntity != null) {
             List<Friends> friendsEntities = userEntity.getFriendsList();
             System.out.println("friends list size : "+friendsEntities.size());
