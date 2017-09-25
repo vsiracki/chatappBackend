@@ -43,7 +43,7 @@ public class ContactListRestController {
     
     @RequestMapping("/get/{id}")
     public List<UserDto> getMyFriends(@PathVariable Long id){
-        System.out.println("inside function");
+        System.out.println("inside functionnn");
         return userService.getUserFriends(id);
     }
     

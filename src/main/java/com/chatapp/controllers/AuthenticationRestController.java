@@ -95,7 +95,7 @@ public class AuthenticationRestController {
 
     @RequestMapping(value = "auth", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
-
+//        System.out.println("username "+authenticationRequest.getUsername()+" pass: "+authenticationRequest.getPassword());
         boolean result = usersService.validateUserNameAndPassword(authenticationRequest.getUsername(),
                 authenticationRequest.getPassword());
         UserDto userDto = usersService.getUserByUserNameAndPassword(authenticationRequest.getUsername(),
