@@ -55,9 +55,9 @@ public class UsersService {
     MapperUtil mapperUtil;
 
     public boolean validateUserNameAndPassword(String userName, String password) {
-        System.out.println("username "+userName+" pass: "+password);
+//        System.out.println("username "+userName+" pass: "+password);
         List<User> users = userRepository.findAllByUserNameAndPassword(userName, password);
-        System.out.println("users : "+users.size());
+//        System.out.println("users : "+users.size());
         if (users != null && users.size() == 1) {
             return true;
         }
