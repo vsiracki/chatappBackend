@@ -45,8 +45,8 @@ public class UsersService {
     MessagesRepository messageRepository;
     
 
-//    @Autowired
-//    private SimpMessagingTemplate template;
+    @Autowired
+    private SimpMessagingTemplate template;
     
     @Autowired
     Mapper mapper;
@@ -157,7 +157,7 @@ public class UsersService {
         ObjectMapper mapper = new ObjectMapper();
         String friendJsonString = mapper.writeValueAsString(friendDto);
         
-//        this.template.convertAndSendToUser(message.getUserSenderId().getUserName(), "/topic/newFriendAdded", friendJsonString);
+        this.template.convertAndSendToUser(message.getUserSenderId().getUserName(), "/topic/newFriendAdded", friendJsonString);
         System.out.println("message "+message.getMessageContent());
         List<Messages> messages = messageRepository.findAllByMessageTypeIdAndConversationIdId(message.getMessageType().getId(), message.getConversationId().getId());
         for(Messages msg:messages){
