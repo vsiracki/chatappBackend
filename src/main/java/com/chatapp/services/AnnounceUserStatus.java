@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AnnounceUserStatus {
-    @Autowired
+    
     private SimpMessagingTemplate template;
     
     @Autowired
@@ -46,6 +46,11 @@ public class AnnounceUserStatus {
 
     public SimpMessagingTemplate getTemplate() {
         return template;
+    }
+    
+    @Autowired
+    public void setTemplate(SimpMessagingTemplate template) {
+        this.template = template;
     }
 
     
