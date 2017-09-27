@@ -64,6 +64,7 @@ public class AuthenticationRestController {
         return usersService.isUserNameExists(userName);
     }
 
+    
     @RequestMapping(value = "checkEmail", method = RequestMethod.POST)
     public boolean isEmailExists(@RequestBody String email) {
         System.out.println("email passed " + email);
