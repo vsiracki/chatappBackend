@@ -27,8 +27,15 @@ public class WebSocketController {
     @Autowired
     MessagesService messageService;
 
-    @Autowired
+    
     private SimpMessagingTemplate template;
+
+    @Autowired
+    public void setTemplate(SimpMessagingTemplate template) {
+        this.template = template;
+    }
+    
+     
 
     @MessageMapping("/messages")
     public void greeting(String message, SimpMessageHeaderAccessor headerAccessor) throws Exception {
