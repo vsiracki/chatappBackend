@@ -22,8 +22,13 @@ public class AnnounceUserStatus {
     
     private SimpMessagingTemplate template;
     
-    @Autowired
+    
     private UsersService userService;
+    
+    @Autowired
+    public void setUserService(UsersService userService) {
+        this.userService = userService;
+    }
     
     public void isOnline(String userName){
         List<UserDto> friends = userService.getUserFriendsByUserName(userName);

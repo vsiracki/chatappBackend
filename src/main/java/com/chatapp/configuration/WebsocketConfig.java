@@ -25,11 +25,18 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     @Autowired
     JwtTokenUtil tokenUtil;
     
-    @Autowired
+    
     UsersService usersService;
     
     @Autowired
     AnnounceUserStatus announceUserStatus;
+
+    @Autowired
+    public void setUsersService(UsersService usersService) {
+        this.usersService = usersService;
+    }
+    
+    
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
