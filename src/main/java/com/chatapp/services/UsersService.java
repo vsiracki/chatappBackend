@@ -45,14 +45,21 @@ public class UsersService {
     MessagesRepository messageRepository;
     
 
-//    @Autowired
-//    private SimpMessagingTemplate template;
+    
+    private SimpMessagingTemplate template;
     
     @Autowired
     Mapper mapper;
     
     @Autowired
     MapperUtil mapperUtil;
+
+    @Autowired
+    public void setTemplate(SimpMessagingTemplate template) {
+        this.template = template;
+    }
+
+    
 
     public boolean validateUserNameAndPassword(String userName, String password) {
 //        System.out.println("username "+userName+" pass: "+password);
@@ -157,7 +164,7 @@ public class UsersService {
         ObjectMapper mapper = new ObjectMapper();
         String friendJsonString = mapper.writeValueAsString(friendDto);
         
-//        this.template.convertAndSendToUser(message.getUserSenderId().getUserName(), "/topic/newFriendAdded", friendJsonString);
+        this.template.convertAndSendToUser(message.getUserSenderId().getUserName(), "/topic/newFriendAdded", friendJsonString);
         System.out.println("message "+message.getMessageContent());
         List<Messages> messages = messageRepository.findAllByMessageTypeIdAndConversationIdId(message.getMessageType().getId(), message.getConversationId().getId());
         for(Messages msg:messages){
