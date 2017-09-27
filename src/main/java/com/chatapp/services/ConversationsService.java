@@ -63,8 +63,8 @@ public class ConversationsService {
     @Autowired
     private Mapper mapper;
 
-    @Autowired
-    private SimpMessagingTemplate template;
+//    @Autowired
+//    private SimpMessagingTemplate template;
 
     public List<MessagesDto> getConversationMessages(Long conversationId) {
         List<Messages> messages = messageRepository.findFirst10ByConversationIdIdOrderByIdDesc(conversationId);
@@ -156,7 +156,7 @@ public class ConversationsService {
         ObjectMapper Omapper = new ObjectMapper();
         String converstionJsonString = Omapper.writeValueAsString(conv);
         for (User friend : friends) {
-            this.template.convertAndSendToUser(friend.getUserName(), "/topic/newFriendRequests", converstionJsonString);
+//            this.template.convertAndSendToUser(friend.getUserName(), "/topic/newFriendRequests", converstionJsonString);
         }
 
         return conv;
