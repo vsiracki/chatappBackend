@@ -44,3 +44,4 @@ INSERT INTO `t_message_type` (`id`, `name`) VALUES ('1', 'TEXT');
 INSERT INTO `t_message_type` (`id`, `name`) VALUES ('2', 'IMAGE');
 INSERT INTO `t_message_type` (`id`, `name`) VALUES ('3', 'VIDEO');
 INSERT INTO `t_message_type` (`id`, `name`) VALUES ('4', 'FRIEND_REQUEST');
+
