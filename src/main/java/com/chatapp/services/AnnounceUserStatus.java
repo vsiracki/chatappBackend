@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AnnounceUserStatus {
-    @Autowired
-    private SimpMessagingTemplate template;
+//    @Autowired
+//    private SimpMessagingTemplate template;
     
     @Autowired
     private UsersService userService;
@@ -29,7 +29,7 @@ public class AnnounceUserStatus {
         List<UserDto> friends = userService.getUserFriendsByUserName(userName);
         UserStatus userStatus = new UserStatus(userName, Status.ONLINE);
         for(UserDto user:friends){
-            this.template.convertAndSendToUser(user.getUserName(),"/topic/contactlist", userStatus);
+//            this.template.convertAndSendToUser(user.getUserName(),"/topic/contactlist", userStatus);
                         
         }
         
@@ -39,7 +39,7 @@ public class AnnounceUserStatus {
         List<UserDto> friends = userService.getUserFriendsByUserName(userName);
         UserStatus userStatus = new UserStatus(userName, Status.OFFLINE);
         for(UserDto user:friends){
-            this.template.convertAndSendToUser(user.getUserName(),"/topic/contactlist", userStatus);
+//            this.template.convertAndSendToUser(user.getUserName(),"/topic/contactlist", userStatus);
         }
         
     }
