@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -54,6 +55,18 @@ public class AuthenticationRestController {
     private UsersService usersService;
 
     
+    @RequestMapping("isTokenExpired")
+    public boolean isTokenExpired(HttpServletRequest request){
+        String authToken = request.getHeader(this.tokenHeader);
+        if(authToken != null && authToken.startsWith("Bearer ")){
+            authToken = authToken.substring(7);
+        }
+        System.out.println("token "+authToken);
+        if(jwtTokenUtil.isTokenExpired(authToken))
+            return true;
+        else 
+            return false;
+    }
     @RequestMapping("isOffline/{userName}")
     public void isOffline(@PathVariable("userName")String userName){
         announceUserStatus.isOffline(userName);
