@@ -73,6 +73,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 ).permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/isTokenExpired").permitAll()
+                .antMatchers("/checkUserName/**").permitAll()
+                .antMatchers("/checkEmail/**").permitAll()
                 .antMatchers("/signUp/**").permitAll()
                 .antMatchers("/messages/**").permitAll()
                 .antMatchers("/friends/getImage/**").permitAll()
