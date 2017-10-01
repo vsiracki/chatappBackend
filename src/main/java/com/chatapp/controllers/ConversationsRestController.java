@@ -21,8 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("chatmessages")
 public class ConversationsRestController {
     
-    @Autowired
     ConversationsService conversationsService;
+
+    @Autowired
+    public void setConversationsService(ConversationsService conversationsService) {
+        this.conversationsService = conversationsService;
+    }
+    
+    
     
     @RequestMapping("conversation/{conversationId}")
     public List<MessagesDto> getConversationMessages(@PathVariable(value="conversationId")Long conversationId){
