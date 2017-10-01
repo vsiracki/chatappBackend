@@ -28,9 +28,14 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     
     UsersService usersService;
     
-    @Autowired
     AnnounceUserStatus announceUserStatus;
+ 
+    @Autowired
+    public void setAnnounceUserStatus(AnnounceUserStatus announceUserStatus) {
+        this.announceUserStatus = announceUserStatus;
+    }
 
+    
     @Autowired
     public void setUsersService(UsersService usersService) {
         this.usersService = usersService;
