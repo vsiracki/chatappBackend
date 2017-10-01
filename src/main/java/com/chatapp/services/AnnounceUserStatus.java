@@ -31,6 +31,7 @@ public class AnnounceUserStatus {
     }
     
     public void isOnline(String userName){
+        userService.getOnlineUsers().add(userName);
         List<UserDto> friends = userService.getUserFriendsByUserName(userName);
         UserStatus userStatus = new UserStatus(userName, Status.ONLINE);
         for(UserDto user:friends){
@@ -41,6 +42,7 @@ public class AnnounceUserStatus {
     }
     
     public void isOffline(String userName){
+        userService.getOnlineUsers().remove(userName);
         List<UserDto> friends = userService.getUserFriendsByUserName(userName);
         UserStatus userStatus = new UserStatus(userName, Status.OFFLINE);
         for(UserDto user:friends){

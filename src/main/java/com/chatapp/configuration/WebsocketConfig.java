@@ -26,7 +26,7 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     JwtTokenUtil tokenUtil;
     
     
-    UsersService usersService;
+//    UsersService usersService;
     
     AnnounceUserStatus announceUserStatus;
  
@@ -35,12 +35,12 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
         this.announceUserStatus = announceUserStatus;
     }
 
-    
-    @Autowired
-    public void setUsersService(UsersService usersService) {
-        this.usersService = usersService;
-    }
-    
+//    
+//    @Autowired
+//    public void setUsersService(UsersService usersService) {
+//        this.usersService = usersService;
+//    }
+//    
     
 
     @Override
@@ -72,7 +72,7 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
                     String userName = tokenUtil.getUsernameFromToken(token);
                     announceUserStatus.isOnline(userName);
                     System.out.println(userName+" is connected");
-                    usersService.getOnlineUsers().add(userName);
+                    
                     if (userName != null) {
                         Principal user = new Principal() {
                             @Override
@@ -85,7 +85,7 @@ public class WebsocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
                 }
                 if (StompCommand.DISCONNECT.equals(accessor.getCommand())) {
                     System.out.println(accessor.getUser().getName()+" is disconnected");
-                    usersService.getOnlineUsers().remove(accessor.getUser().getName());
+                    
                     announceUserStatus.isOffline(accessor.getUser().getName());
                 }
                 
