@@ -5,5 +5,3 @@ Web based chat application (peer to peer / group) conversations using websocket 
  Realtime interactions and notifications such as showing that your friend is typing and online/offline status
  Tools & technologies: Angular 4,Java ,spring boot, JWT, spring security, JPA ,REST ,MySql ,Material design
 ,Netbeans, Navicat, Git, Tortoise Git.
- Live link on heroku : https://chatme-application.herokuapp.com/
-(you can login with yousef/yousef for demonstration purpose)
